@@ -103,3 +103,7 @@ function getRandomQuotes(size){
     println()
     return randomQuotes
 }
+https://rawgit.com/muratidinov/sudary/master/html/home.html
+https://cdn.rawgit.com/muratidinov/sudary/master/html/home.html
+https://github.com/{username}/{repo_name}/blob/master/{file_name}
+https://github.com/muratidinov/sudary/blob/master/html/home.html
