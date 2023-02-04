@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>ТА ЗА ЧТО?</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">ТА ЗА ЧТО?</h1>
+            <br>
+            <br>
+            <div th:each="quote : ${quotes}">
+                <p th:text="${quote}"></p>
+            </div>
+        </div>
+    </section>
+</main>
+<svg width="360" height="500">
+    <rect width="320" height="460" x="20" y="20" rx="20" fill="lemonchiffon" />
+
+    <circle r="100" cx="140" cy="170" fill="crimson" />
+    <ellipse rx="60" ry="80" cx="250" cy="210" fill="gold" />
+
+    <polyline points="140,270 150,300 135,330 150,360 135,390 150,420" stroke="brown" fill="none" />
+    <polyline points="250,290 260,320 245,350 260,380 245,410 260,440" stroke="brown" fill="none" />
+
+    <polygon points="140,270 130,280 150,280" fill="crimson" />
+    <polygon points="250,290 240,300 260,300" fill="gold" />
+</svg>
+</body>
+</html>

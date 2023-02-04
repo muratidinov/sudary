@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/139/139310.png">
+
+    <title>ТА ЗА ЧТО?</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading" id="celebration">Поздравляю, вы только что отправились на хуй!</h1>
+            <div id="standardTextBox">
+                <br>
+                <br>
+                <p>Не каждому хватит мужества добровольно принять подобный вызов.</p>
+                <p>В любом случае, вы все ещё пидорас/хуесос/мудозвон/говноед и просто <s>выдающаяся личность</s>
+                    маленький
+                    комочек бесполезности.</p>
+                <p>Вам остаётся лишь принять правду и жить в проклятом мире, который сами создали.</p>
+                <p>В добрый путь, неуважаемая биомасса.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let withoutWish = urlParams.get('withoutWish')
+
+    console.log(withoutWish)
+
+    if (withoutWish === 'true') {
+        document.getElementById('celebration').innerText = 'Вы отчаянно пытались избежать судьбы, но вы всё равно отправляетесь на хуй. Такова жизнь, смиритесь с этим'
+
+        document.getElementById('standardTextBox').remove()
+    }
+
+</script>
+</body>
+</html>
+
+

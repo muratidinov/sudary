@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+
+    <script src="../js/coder.js"></script>
+
+    <!--    <link href="./css/home.css" rel="stylesheet">-->
+    <title>Поздравляем!</title>
+    <style>
+
+        .container {
+            position: relative;
+        }
+
+        #myCanvas {
+            background: black;
+        }
+
+        #myDiv {
+            position: absolute;
+            top: 100px;
+            left: 150px;
+        }
+
+        .balloon {
+            display: inline-block;
+            width: 120px;
+            height: 145px;
+            background: hsl(215, 50%, 65%);
+            border-radius: 80%;
+            position: relative;
+            box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+            margin: 20px 30px;
+            transition: transform 0.5s ease;
+            z-index: 10;
+            animation: balloons 4s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        .razmytie {
+            filter: blur(1px);
+        }
+
+        @keyframes balloons {
+            0%, 100% {
+                transform: translateY(0) rotate(-4deg);
+            }
+            50% {
+                transform: translateY(-25px) rotate(4deg);
+            }
+        }
+
+        .balloon:before {
+            content: "▲";
+            font-size: 20px;
+            color: hsl(215, 30%, 50%);
+            display: block;
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            bottom: -12px;
+            z-index: -100;
+        }
+
+        .balloon:after {
+            display: inline-block;
+            top: 153px;
+            position: absolute;
+            height: 250px;
+            width: 1px;
+            margin: 0 auto;
+            content: "";
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .balloon:nth-child(2) {
+            background: hsl(245, 40%, 65%);
+            animation-duration: 3.5s;
+        }
+
+        .balloon:nth-child(2):before {
+            color: hsl(245, 40%, 65%);
+        }
+
+        .balloon:nth-child(3) {
+            background: hsl(139, 50%, 60%);
+            animation-duration: 3s;
+        }
+
+        .balloon:nth-child(3):before {
+            color: hsl(139, 30%, 50%);
+        }
+
+        .balloon:nth-child(4) {
+            background: hsl(59, 50%, 58%);
+            animation-duration: 4.5s;
+        }
+
+        .balloon:nth-child(4):before {
+            color: hsl(59, 30%, 52%);
+        }
+
+        .balloon:nth-child(5) {
+            background: hsl(23, 55%, 57%);
+            animation-duration: 5s;
+        }
+
+        .balloon:nth-child(5):before {
+            color: hsl(23, 44%, 46%);
+        }
+
+        #my-button {
+            position: absolute;
+            transition: all 0.07s linear 0s;
+            z-index: 99999;
+        }
+    </style>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let name = urlParams.get('dunce')
+        if (name === null || name === undefined || name === '') {
+            name = 'ГОСТЬ'
+        }
+        name = new TextDecoder().decode(name.arra)
+        name = name.charAt(0).toUpperCase() + name.slice(1);
+        console.log(name);
+        document.title = 'Поздравляем ' + name + '!'
+    </script>
+</head>
+<body>
+<canvas id="myCanvas" class="razmytie">
+</canvas>
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container" id="myDiv">
+            <div class="balloon razmytie"></div>
+            <div class="balloon razmytie"></div>
+            <div class="balloon razmytie"></div>
+            <div class="balloon razmytie"></div>
+            <div class="balloon razmytie"></div>
+            <h1>Здравствуйте, ув. <span class='personName'></span>,</h1>
+            <h2>Идите на хуй!</h2>
+            <br>
+            <h4>Доводим до вашего сведения, что вы были посланы на хуй.</h4>
+            <h4>Вы - отвратительный человек, и ваша матушка вас не хотела</h4>
+            <br>
+            <div class="btn-group-lg">
+                <a href="a_za_chto.html">
+                    <button class="btn btn-group-lg btn-lg btn-info" type="button" data-toggle="collapse"
+                            data-target="#taZaChto"
+                            aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                        <span>Та за что?</span>
+                    </button>
+                </a>
+                <a href="oiti_nahui.html">
+                    <button class="btn btn-group-lg btn-lg btn-success" type="button">
+                        <span>Пойти на хуй</span>
+                    </button>
+                </a>
+                <a id="my-button-link">
+                    <button class="btn btn-group-lg btn-lg btn-danger" type="button" id="my-button">
+                        <span>Я не хочу идти на хуй</span>
+                    </button>
+                </a>
+            </div>
+            <br>
+            <br>
+            <div class="align-self-center" style="margin-left: 300px">
+                <form class="form-inline">
+                    <div class="form-group mb-2">
+                        <label for="inputPassword2">Передайте эстафету другому: </label>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" id="newPersonInput" class="form-control" id="inputPassword2"
+                               placeholder="имя получателя">
+                    </div>
+                    <button type="button" id="newPersonButton" class="btn btn-primary mb-2">Послать на хуй</button>
+                </form>
+            </div>
+            <div>
+                <a id="newPersonLink" hidden="hidden">
+                    newPersonLink
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+<!--<script src="./js/home.js"></script>-->
+<script>
+    document.getElementById('newPersonButton').onclick = function () {
+        let newPersonName = document.getElementById('newPersonInput').value;
+        if (newPersonName === undefined || newPersonName === '' || newPersonName.length < 2) {
+            alert('Введено невалидное имя: ' + newPersonName)
+            return
+        }
+        newPersonName = new TextEncoder().encode(newPersonName)
+        console.log(newPersonName)
+        let link = window.location.href;
+        link = link + '?dunce=' + newPersonName
+        let newPersonLink = document.getElementById('newPersonLink');
+        newPersonLink.hidden = false
+        newPersonLink.innerText = link
+        newPersonLink.href = link
+
+    }
+
+    let personNameElements = document.getElementsByClassName('personName');
+    for (let i = 0; i < personNameElements.length; i++) {
+        personNameElements[i].innerHTML = name
+    }
+
+    const rndColor = () => {
+        const base = Math.random() * 360 | 0;
+        const color = (275 * (base / 200 | 0)) + base % 200;
+        return fac => `hsl(${color}, ${(fac || 1) * 100}%, ${(fac || 1) * 60}%)`;
+    };
+
+    class Battery {
+        constructor(fireworks) {
+            this.fireworks = fireworks;
+            this.salve = [];
+            this.x = Math.random();
+            this.t = 0;
+            this.tmod = 20 + Math.random() * 20 | 0;
+            this.tmax = 500 + Math.random() * 1000;
+
+            this._shot = salve => {
+                // console.log(this.x * this.fireworks.width, salve.y);
+                if (salve.y < salve.ym) {
+                    salve.cb = this._prepareExplosion;
+                }
+
+                salve.x += salve.mx;
+                salve.y -= 0.01;
+
+                const r = Math.atan2(-0.01, salve.mx);
+
+                this.fireworks.engine.strokeStyle = salve.c(.7);
+                this.fireworks.engine.beginPath();
+
+                this.fireworks.engine.moveTo(
+                    (this.x + salve.x) * this.fireworks.width + Math.cos(r) * 4,
+                    salve.y * this.fireworks.height + Math.sin(r) * 4
+                );
+
+                this.fireworks.engine.lineTo(
+                    (this.x + salve.x) * this.fireworks.width + Math.cos(r + Math.PI) * 4,
+                    salve.y * this.fireworks.height + Math.sin(r + Math.PI) * 4
+                );
+
+                this.fireworks.engine.lineWidth = 3;
+                this.fireworks.engine.stroke();
+
+                // this.fireworks.engine.fillRect((this.x + salve.x) * this.fireworks.width, salve.y * this.fireworks.height, 1, 1);
+            };
+
+            this._prepareExplosion = salve => {
+                salve.explosion = [];
+
+                for (let i = 0, max = 32; i < max; i++) {
+                    salve.explosion.push({
+                        r: 2 * i / Math.PI,
+                        s: 0.5 + Math.random() * 0.5,
+                        d: 0,
+                        y: 0
+                    });
+                }
+
+                salve.cb = this._explode;
+            };
+
+            this._explode = salve => {
+
+                this.fireworks.engine.fillStyle = salve.c();
+
+                salve.explosion.forEach(explo => {
+
+                    explo.d += explo.s;
+                    explo.s *= 0.99;
+                    explo.y += 0.5;
+
+                    const alpha = explo.s * 2.5;
+                    this.fireworks.engine.globalAlpha = alpha;
+
+                    if (alpha < 0.05) {
+                        salve.cb = null;
+                    }
+
+                    this.fireworks.engine.fillRect(
+                        Math.cos(explo.r) * explo.d + (this.x + salve.x) * this.fireworks.width,
+                        Math.sin(explo.r) * explo.d + explo.y + salve.y * this.fireworks.height,
+                        3,
+                        3
+                    );
+                });
+
+                this.fireworks.engine.globalAlpha = 1;
+            }
+        }
+
+        pushSalve() {
+            this.salve.push({
+                x: 0,
+                mx: -0.02 * Math.random() * 0.04,
+                y: 1,
+                ym: 0.05 + Math.random() * 0.5,
+                c: rndColor(),
+                cb: this._shot
+            });
+        };
+
+        render() {
+
+            this.t++;
+
+            if (this.t < this.tmax && (this.t % this.tmod) === 0) {
+                this.pushSalve();
+            }
+
+            let rendered = false;
+
+            this.salve.forEach(salve => {
+
+                if (salve.cb) {
+                    rendered = true;
+                    salve.cb(salve);
+                }
+
+            });
+
+            if (this.t > this.tmax) {
+                return rendered;
+            }
+
+            return true;
+        }
+    }
+
+    class Fireworks {
+        constructor() {
+            this.canvas = window.document.querySelector('canvas');
+            this.engine = this.canvas.getContext('2d');
+            this.stacks = new Map();
+
+            this.resize();
+        }
+
+        resize() {
+            this.width = window.innerWidth;
+            this.height = window.innerHeight;
+
+            this.canvas.setAttribute('width', this.width);
+            this.canvas.setAttribute('height', this.height);
+        }
+
+        clear() {
+            this.engine.clearRect(0, 0, this.width, this.height);
+            this.engine.fillStyle = '#222';
+            this.engine.fillRect(0, 0, this.width, this.height);
+        }
+
+        addBattery() {
+            const bat = new Battery(this);
+            this.stacks.set(Date.now(), bat);
+        }
+
+        render() {
+
+            if (Math.random() < 0.05) {
+                this.addBattery();
+            }
+
+            this.clear();
+
+            this.stacks.forEach((scene, key) => {
+
+                const rendered = scene.render();
+
+                if (!rendered) {
+                    this.stacks.delete(key);
+                }
+            });
+
+            requestAnimationFrame(this.render.bind(this));
+        }
+
+        run() {
+            for (let i = 0; i < 5; i++) {
+                this.addBattery();
+            }
+            window.addEventListener('resize', this.resize.bind(this));
+            this.render();
+        }
+    }
+
+    a = new Fireworks();
+    a.run();
+</script>
+<script>
+    // $(document).on('mousemove', function (e) {
+    //     $('#my-button').css({
+    //         marginLeft: -e.pageX / 100 + 20,
+    //         marginTop: -e.pageY / 100 + 20
+    //     })
+    // })
+
+    var nahuiClickCounter = 0
+    let randomInt = getRandomInt(12, 20)
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function newPosition(oldTop, oldLeft, width, height) {
+        var range = 0; // Тут выставьте свой минимальный диапазон дальности
+        var newTop = getRandomInt(0, height);
+        var newLeft = getRandomInt(0, width);
+        if (((oldTop - range) < newTop && (oldTop + range) > newTop) ||
+            ((oldLeft - range) < newLeft && (oldLeft + range) > newLeft))
+            return newPosition(oldTop, oldLeft, width, height);
+        else return [newTop, newLeft];
+    }
+
+    $("#my-button").on(
+        "click", function () {
+            console.log(nahuiClickCounter)
+            if (nahuiClickCounter === 0) {
+                nahuiClickCounter++
+
+                console.log('width: ' + $(".container").width())
+                console.log('height: ' + $(".container").height())
+
+                var buttonPosition = newPosition(
+                    parseInt($(this).css("top")),
+                    parseInt($(this).css("left")),
+                    50,
+                    50
+                );
+                $(this).css({
+                    top: buttonPosition[0],
+                    left: buttonPosition[1]
+                });
+                console.log("some")
+
+                $("#my-button").hover(function () {
+                        console.log('nahuiClickCounter: ' + nahuiClickCounter)
+                        console.log('randomNumber: ' + randomInt)
+                        if (nahuiClickCounter === randomInt) {
+                            return
+                        }
+                        nahuiClickCounter++
+                        var buttonPosition = newPosition(
+                            parseInt($(this).css("top")),
+                            parseInt($(this).css("left")),
+                            $(".container").width(),
+                            $(".container").height()
+                        );
+                        $(this).css({
+                            top: buttonPosition[0],
+                            left: buttonPosition[1]
+                        });
+                    }
+                );
+                return
+            }
+
+            location.href = "poiti_nahui.html";
+
+        }
+    )
+
+    function randomIntFromInterval(min, max) { // min and max included
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    //
+    // $("#my-button").hover(function () {
+    //     var buttonPosition = newPosition(
+    //         parseInt($(this).css("top")),
+    //         parseInt($(this).css("left")),
+    //         $(".container").width(),
+    //         $(".container").height()
+    //     );
+    //     $(this).css({
+    //         top: buttonPosition[0],
+    //         left: buttonPosition[1]
+    //     });
+    // }, function () {
+    // });
+
+
+    // второй вариант
+    // function getRandomInt(min, max) {
+    //     return Math.floor(Math.random() * (max - min + 1)) + min;
+    // }
+    // $("#my-button").hover(function () {
+    //     $(this).css({
+    //         top: getRandomInt(0, 150)+"px",
+    //         left: getRandomInt(0, 150)+"px"
+    //     });
+    // }, function () { });
+</script>
+</html>
